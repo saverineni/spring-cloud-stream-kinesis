@@ -1,0 +1,47 @@
+logging.level.root: INFO
+
+server:
+   port: 8082
+
+spring:
+  application:
+    name: alarme-processor
+  cloud:
+    stream:
+      instanceCount: 2
+      instanceIndex: 1
+      bindings:
+        input:
+          group: "myStream-group"
+          destination: Chapter4KinesisStream
+          content-type: text/plain
+      kinesis:
+        binder:
+          locks:
+            table: "alarme-lockregistry"
+          checkpoint:
+            table: "alarme-metadata-store"
+        bindings:
+          alarmeStreamOne:
+            consumer:
+              shardIteratorType: TRIM_HORIZON
+            group: "alarme"
+
+kinesis:
+  endpoint: http://127.0.0.1:4568
+  region: us-east-1
+
+dynamo:
+  endpoint: http://127.0.0.1:4569
+  region: us-east-1
+
+cloud:
+  aws:
+    credentials:
+      accesskey: localstack
+      secretkey: localstack
+    region:
+      static: us-east-1
+      auto: false
+    stack:
+      auto: false
