@@ -1,4 +1,4 @@
-package com.baeldung;
+package uk.co.itcrux;
 
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;

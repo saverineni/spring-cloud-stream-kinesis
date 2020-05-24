@@ -1,4 +1,4 @@
-package com.baeldung;
+package uk.co.itcrux;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -6,16 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Processor;
-import org.springframework.messaging.support.MessageBuilder;
 
 @SpringBootApplication
 @EnableBinding(Processor.class)
-public class KinesisApplication {
+public class KinesisConsumerGroupApplication {
 
     public static void main(String[] args) {
         System.setProperty("AWS_CBOR_DISABLE", "1");
         System.setProperty("com.amazonaws.sdk.disableCbor", "1");
-        SpringApplication.run(KinesisApplication.class, args);
+        SpringApplication.run(KinesisConsumerGroupApplication.class, args);
     }
 
     @Autowired
