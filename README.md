@@ -23,5 +23,5 @@
 ### DynamoDB
          
          aws --endpoint-url=http://localhost:4569 dynamodb list-tables
-         aws --endpoint-url=http://localhost:4569 dynamodb scan --table-name alarme-lockregistry
-         aws --endpoint-url=http://localhost:4569 dynamodb delete-table --table-name SpringIntegrationMetadataStore
+         aws --endpoint-url=http://localhost:4569 dynamodb scan --table-name app-lockregistry
+         aws --endpoint-url=http://localhost:4569 dynamodb delete-table --table-name app-metadata-store
