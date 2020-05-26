@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: alarme-processor
+    name: app-processor
   cloud:
     stream:
       instanceCount: 2
@@ -18,11 +18,12 @@ spring:
       kinesis:
         binder:
           locks:
-            table: "alarme-lockregistry"
+            table: "app-lockregistry"
           checkpoint:
-            table: "alarme-metadata-store"
+            table: "app-metadata-store"
         bindings:
-          alarmeStreamOne:
+          
+          meStreamOne:
             consumer:
               shardIteratorType: TRIM_HORIZON
             group: "alarme"
